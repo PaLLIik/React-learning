@@ -1,0 +1,129 @@
+.to-do-list {
+  width: min(560px, calc(100% - 32px));
+  margin: 48px auto;
+  padding: 28px 24px 20px;
+  border-radius: 16px;
+  background: #1b2030;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.to-do-list h1 {
+  margin: 0 0 20px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.to-do-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.to-do-form input {
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #3a4460;
+  border-radius: 10px;
+  background: #121622;
+  color: #e8edf7;
+  font: inherit;
+  outline: none;
+}
+
+.to-do-form input::placeholder {
+  color: #8b95b0;
+}
+
+.to-do-form input:focus {
+  border-color: #6ea8ff;
+}
+
+.to-do-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.to-do-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #232a3d;
+}
+
+.to-do-list .text {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.to-do-list button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-button {
+  background: #3b82f6;
+}
+
+.add-button:hover {
+  background: #2563eb;
+}
+
+.delete-button {
+  background: #ef4444;
+}
+
+.delete-button:hover {
+  background: #dc2626;
+}
+
+.up-button {
+  background: #64748b;
+}
+
+.up-button:hover {
+  background: #475569;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.input-wrapper input {
+  padding-right: 50px; /* место для счётчика, чтобы текст не наезжал */
+}
+
+.char-count {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  color: gray;
+  pointer-events: none; /* чтобы клик по счётчику не мешал кликать по инпуту */
+}
