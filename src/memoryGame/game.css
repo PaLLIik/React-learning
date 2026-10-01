@@ -1,0 +1,63 @@
+.memory-game {
+  width: min(420px, calc(100% - 32px));
+  margin: 48px auto;
+}
+
+.game-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.restart-button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: #3b82f6;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background: #2563eb;
+}
+
+.game-result {
+  min-height: 1.5em;
+  margin: 12px 0;
+  font-weight: 600;
+  text-align: center;
+  color: #4ade80;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  background: #232a3d;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card:hover {
+  background: #2d3650;
+}
+
+.card:focus-visible,
+.restart-button:focus-visible {
+  outline: 2px solid #6ea8ff;
+  outline-offset: 2px;
+}

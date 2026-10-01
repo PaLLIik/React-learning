@@ -1,13 +1,13 @@
 export default function UserList({ users }) {
-  if (users.length === 0) return <p>Пользователи не найдены</p>;
+  if (users.length === 0) return <p className="user-list-empty">Пользователи не найдены</p>
 
   return (
-    <ul>
+    <ul className="user-list">
       {users.map((u) => (
         <li key={u.id}>
           <strong>{u.name}</strong> — {u.profession}
         </li>
       ))}
     </ul>
-  );
+  )
 }

@@ -6,4 +6,4 @@ export const initialUsers = [
   { id: 5, name: 'Katherine Johnson', profession: 'Programmer' },
   { id: 6, name: 'Jane Johnson', profession: 'Astronaut' },
   { id: 7, name: 'Cael Thas', profession: 'Manager' },
-];
+]

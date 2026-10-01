@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 
+function loadTasks() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('tasks'))
+    return Array.isArray(saved) ? saved : []
+  } catch {
+    return []
+  }
+}
+
 export function useTasks() {
-  const [tasks, setTasks] = useState(() => {
-    const saved = localStorage.getItem('tasks')
-    return saved ? JSON.parse(saved) : []
-  })
+  const [tasks, setTasks] = useState(loadTasks)
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -30,12 +36,15 @@ export function useTasks() {
   }
 
   function moveUpTask(id) {
-    const index = activeTasks.findIndex(task => task.id === id)
-    if (index > 0) {
-      const reordered = [...activeTasks]
-      ;[reordered[index], reordered[index - 1]] = [reordered[index - 1], reordered[index]]
-      setTasks([...reordered, ...doneTasks])
-    }
+    setTasks(prev => {
+      const active = prev.filter(task => !task.completed)
+      const done = prev.filter(task => task.completed)
+      const index = active.findIndex(task => task.id === id)
+      if (index <= 0) return prev
+
+      ;[active[index], active[index - 1]] = [active[index - 1], active[index]]
+      return [...active, ...done]
+    })
   }
 
   return { activeTasks, doneTasks, addTask, deleteTask, doneTask, moveUpTask }

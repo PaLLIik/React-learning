@@ -1,3 +1,33 @@
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #1b2030;
+}
+
+.main-nav a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #b0b9d4;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  background: #232a3d;
+  color: #e8edf7;
+}
+
+.main-nav a.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+main {
+  padding: 0 16px;
+}
+
 .to-do-list {
   width: min(560px, calc(100% - 32px));
   margin: 48px auto;
@@ -75,6 +105,15 @@
   cursor: pointer;
 }
 
+.to-do-list li button {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .add-button {
   background: #3b82f6;
 }
@@ -95,8 +134,21 @@
   background: #64748b;
 }
 
-.up-button:hover {
+.up-button:hover:not(:disabled) {
   background: #475569;
+}
+
+.up-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.done-button {
+  background: #22a559;
+}
+
+.done-button:hover {
+  background: #1b8a4a;
 }
 
 .visually-hidden {

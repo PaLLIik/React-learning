@@ -1,8 +1,8 @@
-import { SORT_OPTIONS } from '../sorting';
+import { SORT_OPTIONS } from '../sorting'
 
 export default function UserSortControls({ sortField, onChange, onSort }) {
   return (
-    <div>
+    <div className="user-controls">
       <label htmlFor="sort-field">Сортировать по: </label>
       <select
         id="sort-field"
@@ -15,5 +15,5 @@ export default function UserSortControls({ sortField, onChange, onSort }) {
       </select>
       <button type="button" onClick={onSort}>Сортировать</button>
     </div>
-  );
+  )
 }

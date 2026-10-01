@@ -7,7 +7,7 @@ function ToDoshka() {
 
   return (
     <div className="to-do-list">
-      <h1>To-Do-List</h1>
+      <h1>Список задач</h1>
 
       <TaskForm onAdd={addTask} />
 
@@ -15,9 +15,9 @@ function ToDoshka() {
 
       {doneTasks.length > 0 && (
         <>
-          <h2>Completed</h2>
+          <h2>Выполненные</h2>
           <TaskList tasks={doneTasks} onDelete={deleteTask} onDone={doneTask} completed />
-  </>
+        </>
       )}
     </div>
   )

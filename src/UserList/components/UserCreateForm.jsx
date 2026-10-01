@@ -1,55 +1,55 @@
-import { useState } from 'react';
-import { validateField } from '../validation';
+import { useState } from 'react'
+import { validateField } from '../validation'
 
-const EMPTY = { name: '', profession: '' };
+const EMPTY = { name: '', profession: '' }
 
 export default function UserCreateForm({ onCreate }) {
-  const [form, setForm] = useState(EMPTY);
-  const [errors, setErrors] = useState(EMPTY);
+  const [form, setForm] = useState(EMPTY)
+  const [errors, setErrors] = useState(EMPTY)
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: '' }));
-  };
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+    setErrors((prev) => ({ ...prev, [name]: '' }))
+  }
 
   const handleBlur = (e) => {
-    const { name, value } = e.target;
-    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
-  };
+    const { name, value } = e.target
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }))
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const nextErrors = {
       name: validateField('name', form.name),
       profession: validateField('profession', form.profession),
-    };
-    setErrors(nextErrors);
-    if (nextErrors.name || nextErrors.profession) return;
+    }
+    setErrors(nextErrors)
+    if (nextErrors.name || nextErrors.profession) return
 
-    onCreate({ name: form.name.trim(), profession: form.profession.trim() });
-    setForm(EMPTY);
-  };
+    onCreate({ name: form.name.trim(), profession: form.profession.trim() })
+    setForm(EMPTY)
+  }
 
   return (
     <form onSubmit={handleSubmit} noValidate>
       <h2>Новый пользователь</h2>
 
-      <div>
+      <div className="form-field">
         <label htmlFor="name">Имя: </label>
         <input id="name" name="name" value={form.name}
           onChange={handleChange} onBlur={handleBlur} />
-        {errors.name && <div style={{ color: 'red' }}>{errors.name}</div>}
+        {errors.name && <div className="field-error">{errors.name}</div>}
       </div>
 
-      <div>
+      <div className="form-field">
         <label htmlFor="profession">Профессия: </label>
         <input id="profession" name="profession" value={form.profession}
           onChange={handleChange} onBlur={handleBlur} />
-        {errors.profession && <div style={{ color: 'red' }}>{errors.profession}</div>}
+        {errors.profession && <div className="field-error">{errors.profession}</div>}
       </div>
 
       <button type="submit">Создать</button>
     </form>
-  );
+  )
 }
